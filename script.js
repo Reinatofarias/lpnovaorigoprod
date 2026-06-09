@@ -105,7 +105,7 @@ function initCounters() {
         observer.disconnect();
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.1 });
 
   // Observa a seção de resultados
   const resultsSection = document.getElementById('resultados');
