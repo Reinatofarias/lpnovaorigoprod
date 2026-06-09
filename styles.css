@@ -384,6 +384,25 @@ ul {
   overflow: hidden;
 }
 
+.hero__bg-logo,
+.cta-section__bg-logo {
+  position: absolute;
+  background-image: url('assets/images/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__bg-logo {
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  transform: rotate(-15deg);
+}
+
 .hero__orb {
   position: absolute;
   border-radius: 50%;
@@ -1284,6 +1303,14 @@ ul {
   pointer-events: none;
 }
 
+.cta-section__bg-logo {
+  bottom: -20%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  transform: rotate(15deg);
+}
+
 .cta-section__container {
   max-width: 750px;
   margin: 0 auto;
@@ -1875,6 +1902,20 @@ ul {
 
   .reviews__grid {
     padding: var(--space-xl) 5vw;
+  }
+
+  .hero__bg-logo {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    right: -10%;
+  }
+
+  .cta-section__bg-logo {
+    width: 250px;
+    height: 250px;
+    bottom: -10%;
+    left: -10%;
   }
 }
 
