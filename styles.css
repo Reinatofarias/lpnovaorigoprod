@@ -1469,8 +1469,8 @@ ul {
 }
 
 .review-card {
-  flex: 0 0 calc(33.333% - 16px);
-  min-width: 320px;
+  flex: 0 0 auto;
+  width: min(85vw, 320px);
   scroll-snap-align: center;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -1841,6 +1841,20 @@ ul {
 
   .method__items {
     align-items: center;
+  }
+
+  /* REVIEWS & MARQUEE MOBILE FIXES */
+  .clients-marquee__track {
+    gap: 40px;
+    padding-left: 40px;
+  }
+  
+  .clients-marquee__track img {
+    height: 45px;
+  }
+
+  .reviews__grid {
+    padding: var(--space-xl) 5vw;
   }
 }
 
