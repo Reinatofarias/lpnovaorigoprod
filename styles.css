@@ -1752,7 +1752,27 @@ ul {
   }
 
   .hero__visual {
-    display: none;
+    display: flex;
+    margin-top: var(--space-xl);
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .hero__photo {
+    max-height: 350px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .hero__floating-card {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+  
+  .hero__floating-card svg {
+    width: 16px;
+    height: 16px;
   }
 
   .hero__stats {
