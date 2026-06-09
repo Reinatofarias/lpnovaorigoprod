@@ -107,11 +107,8 @@ function initCounters() {
     });
   }, { threshold: 0.1 });
 
-  // Observa a seção de resultados
-  const resultsSection = document.getElementById('resultados');
-  if (resultsSection) {
-    observer.observe(resultsSection);
-  }
+  // Observa os próprios contadores para garantir que o evento dispare independente do tamanho da seção
+  counters.forEach(counter => observer.observe(counter));
 
   function animateAllCounters() {
     counters.forEach(counter => {
