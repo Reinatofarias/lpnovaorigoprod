@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveLink();
   initParallaxCards();
   initGlowFollow();
+  initUTMTracking();
+  initStickyCTA();
 });
 
 
@@ -314,4 +316,59 @@ function initGlowFollow() {
       card.style.background = '';
     });
   });
+}
+
+
+// ============================================
+// 9. RASTREAMENTO UTM NO WHATSAPP
+// ============================================
+function initUTMTracking() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source');
+  const utmMedium = urlParams.get('utm_medium');
+  const utmCampaign = urlParams.get('utm_campaign');
+
+  if (utmSource || utmMedium || utmCampaign) {
+    const trackingInfo = ` [Origem: ${utmSource || 'N/A'} | Meio: ${utmMedium || 'N/A'} | Campanha: ${utmCampaign || 'N/A'}]`;
+    
+    const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+    waLinks.forEach(link => {
+      const originalHref = link.getAttribute('href');
+      if (originalHref.includes('?text=')) {
+        link.setAttribute('href', originalHref + encodeURIComponent(trackingInfo));
+      } else {
+        const defaultMessage = "Olá, vim pelo site e quero estruturar minha máquina de aquisição de clientes.";
+        link.setAttribute('href', originalHref + '?text=' + encodeURIComponent(defaultMessage + trackingInfo));
+      }
+    });
+  } else {
+    const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+    waLinks.forEach(link => {
+      const originalHref = link.getAttribute('href');
+      if (!originalHref.includes('?text=')) {
+        const defaultMessage = "Olá, vim pelo site e quero estruturar minha máquina de aquisição de clientes.";
+        link.setAttribute('href', originalHref + '?text=' + encodeURIComponent(defaultMessage));
+      }
+    });
+  }
+}
+
+// ============================================
+// 10. STICKY CTA (Mobile)
+// ============================================
+function initStickyCTA() {
+  const stickyCta = document.getElementById('stickyCta');
+  const heroSection = document.getElementById('hero');
+  
+  if (!stickyCta || !heroSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  }, { threshold: 0.1 });
+
+  observer.observe(heroSection);
 }
