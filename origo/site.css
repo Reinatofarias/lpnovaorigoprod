@@ -1,0 +1,41 @@
+body{margin:0;background:#070A1F}
+a{color:#22C7FF}a:hover{color:#7FDDFF}
+.grad{background:linear-gradient(90deg,#22C7FF 0%,#3A46FE 55%,#943EE7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{transition:border-color .25s ease,transform .25s ease}
+.card:hover{border-color:rgba(34,199,255,.45)!important;transform:translateY(-3px)}
+.btn{transition:transform .2s ease,background-color .2s ease}
+.btn:hover{transform:translateY(-1px)}
+@keyframes acende{0%,8%{opacity:.35}18%,100%{opacity:1}}
+@keyframes ponto{0%,8%{background:#2A2F52;box-shadow:none}18%,100%{background:#22C7FF;box-shadow:0 0 0 4px rgba(34,199,255,.15)}}
+.l1{animation:acende 6s ease infinite}
+.l2{animation:acende 6s ease infinite;animation-delay:.9s}
+.l3{animation:acende 6s ease infinite;animation-delay:1.8s}
+.l4{animation:acende 6s ease infinite;animation-delay:2.7s}
+.p1{animation:ponto 6s ease infinite}
+.p2{animation:ponto 6s ease infinite;animation-delay:.9s}
+.p3{animation:ponto 6s ease infinite;animation-delay:1.8s}
+.p4{animation:ponto 6s ease infinite;animation-delay:2.7s}
+@media (prefers-reduced-motion:reduce){.l1,.l2,.l3,.l4,.p1,.p2,.p3,.p4{animation:none}}
+.grad{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-0.01em;padding-right:.06em}
+@keyframes corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.trilha{display:flex;width:max-content;animation:corre 38s linear infinite}
+.faixa:hover .trilha{animation-play-state:paused}
+@keyframes sobe{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes msg{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+details summary{list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+details[open] .mais{transform:rotate(45deg)}
+.mais{transition:transform .2s ease}
+@media (max-width:860px){.chat-grid{grid-template-columns:minmax(0,1fr)!important}.chat-palco{height:auto!important}.chat-fixo{position:relative!important;top:0!important}.nav-links{display:none!important}.hero-grid{grid-template-columns:minmax(0,1fr)!important}.h1{font-size:40px!important}.h2{font-size:32px!important}.fluxo{flex-direction:column!important;align-items:stretch!important}.fluxo-linha{display:none!important}.sec{padding-left:20px!important;padding-right:20px!important}#diagnostico>div{padding:32px 22px!important}}
+
+/* efeitos do app.js */
+.luz{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--lx,70%) var(--ly,35%),rgba(34,199,255,.10),rgba(148,62,231,.06) 40%,transparent 70%);transition:background .08s linear}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .m{opacity:0;transform:translateY(14px) scale(.98);transition:opacity .45s ease,transform .45s ease}
+.js .m.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.trilha,.l1,.l2,.l3,.l4,.p1,.p2,.p3,.p4{animation:none!important}.js .rv,.js .m{opacity:1!important;transform:none!important;transition:none!important}.luz{display:none}}
+.wa-flutuante{position:fixed;right:18px;bottom:18px;z-index:20;width:56px;height:56px;border-radius:50%;background:#25D366;display:none;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+@media (max-width:860px){.wa-flutuante{display:flex}}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+img{max-width:100%}
