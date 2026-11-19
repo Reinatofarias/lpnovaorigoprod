@@ -71,3 +71,19 @@ img{max-width:100%}
 .cli-logo{height:46px;width:auto;max-width:190px;object-fit:contain;opacity:.62;transition:opacity .25s ease;flex-shrink:0}
 .cli-logo:hover{opacity:1}
 @media (max-width:860px){.cli-logo{height:36px}.cli-trilha{gap:44px;padding-right:44px}}
+
+/* carrossel de serviços */
+.car{display:flex;flex-direction:column;gap:22px}
+.car-trilho{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 8px;scrollbar-width:none;outline:none}
+.car-trilho::-webkit-scrollbar{display:none}
+.car-item{flex:0 0 calc((100% - 40px) / 2.85);scroll-snap-align:start;box-sizing:border-box}
+@media (max-width:1100px){.car-item{flex-basis:calc((100% - 20px) / 2.15)}}
+@media (max-width:700px){.car-item{flex-basis:86%}}
+.car-ctrl{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.car-pontos{display:flex;gap:8px}
+.car-pontos button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:rgba(255,255,255,.22);cursor:pointer;transition:width .25s ease,background .25s ease}
+.car-pontos button.on{width:26px;background:linear-gradient(90deg,#22C7FF,#943EE7)}
+.car-btn{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:#F4F5FA;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease,opacity .2s ease}
+.car-btn:hover{background:rgba(255,255,255,.1)}
+.car-btn:disabled{opacity:.3;cursor:default}
+.car-trilho:focus-visible{outline:2px solid #22C7FF;outline-offset:6px;border-radius:18px}
