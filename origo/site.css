@@ -65,3 +65,9 @@ img{max-width:100%}
 @keyframes pntoast{0%,8%{opacity:0;transform:translateY(14px) scale(.97)}14%,78%{opacity:1;transform:none}86%,100%{opacity:0;transform:translateY(8px)}}
 @media (max-width:860px){.pn-toast{left:10px;bottom:-22px}}
 @media (prefers-reduced-motion:reduce){.pn-vivo i,.pn-barras i,.pn-digitando i,.pn-toast{animation:none!important}}
+
+/* faixa de logos de clientes */
+.cli-trilha{gap:64px;align-items:center;padding-right:64px;animation-duration:70s}
+.cli-logo{height:46px;width:auto;max-width:190px;object-fit:contain;opacity:.62;transition:opacity .25s ease;flex-shrink:0}
+.cli-logo:hover{opacity:1}
+@media (max-width:860px){.cli-logo{height:36px}.cli-trilha{gap:44px;padding-right:44px}}
