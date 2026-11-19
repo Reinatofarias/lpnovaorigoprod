@@ -113,7 +113,7 @@
     function porTela() { return Math.max(1, Math.round(trilho.clientWidth / passo())); }
     function paginas() { return Math.max(1, itens.length - porTela() + 1); }
     function atual() { return Math.round(trilho.scrollLeft / passo()); }
-    function ir(i) { trilho.scrollTo({ left: Math.max(0, Math.min(paginas() - 1, i)) * passo(), behavior: 'smooth' }); }
+    function ir(i) { var n = paginas(); i = Math.max(0, Math.min(n - 1, i)); trilho.scrollTo({ left: i >= n - 1 ? trilho.scrollWidth : i * passo(), behavior: 'smooth' }); }
     function montarPontos() {
       pontos.innerHTML = '';
       for (var i = 0; i < paginas(); i++) {
@@ -129,6 +129,8 @@
       Array.prototype.forEach.call(pontos.children, function (b, i) { b.classList.toggle('on', i === Math.min(a, n - 1)); });
       ant.disabled = trilho.scrollLeft < 4;
       prox.disabled = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+      car.classList.toggle('no-fim', prox.disabled);
+      car.classList.toggle('no-inicio', ant.disabled);
     }
     ant.addEventListener('click', function () { ir(atual() - 1); });
     prox.addEventListener('click', function () { ir(atual() + 1); });
