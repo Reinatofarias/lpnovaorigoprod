@@ -108,7 +108,8 @@ def gerar(slug, n):
     h = re.sub(r'(https://wa\.me/5581985647633\?text=[^"]*?)(")', lambda m: m.group(1) + marca + m.group(2), h)
     # canonical e og:url
     url = f'https://www.origocompany.org/{slug}'
-    h = h.replace('<meta name="twitter:card"', f'<link rel="canonical" href="{url}">\n<meta property="og:url" content="{url}">\n<meta name="twitter:card"', 1)
+    h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{url}">', h, count=1)
+    h = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', h, count=1)
     (RAIZ / f'{slug}.html').write_text(h, encoding='utf-8')
     print('ok', slug)
 
